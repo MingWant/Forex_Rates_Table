@@ -5,6 +5,12 @@
 ## Demo URL
 https://hsm.mingwant.com/
 
+## 部署
+git clone 後可以直接用docker-compose一鍵啟動，也可以選擇將前後端分離，用你喜歡的方式啟動。
+```
+docker compose up -d
+```
+
 ## 目標
 以滿足用戶需求為準，盡量不畫蛇添足
 
