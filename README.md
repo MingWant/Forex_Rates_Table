@@ -119,7 +119,7 @@ Forex_Rates_Table/
 ├── backend/                    
 │   ├── app/
 │   │   ├── __init__.py          
-│   │   ├── main.py              
+│   │   ├── main.py              # FAST API
 │   │   ├── services.py          # 處理Fixer API
 │   │   ├── utils.py             # Function（識別Even Number、+10.0002等）
 │   │   └── config.py            # Settings
