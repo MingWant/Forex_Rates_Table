@@ -4,6 +4,7 @@
 ---
 ## Demo URL
 https://hsm.mingwant.com/
+所用知識：雲端部署(Linux Server) + Nginx + CloudFlare Domain管理(沒有開CDN)
 
 ## 部署
 git clone 後可以直接用docker-compose一鍵啟動，也可以選擇將前後端分離，用你喜歡的方式啟動。
