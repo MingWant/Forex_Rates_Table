@@ -1,6 +1,8 @@
 """
-Business logic and external API services.
-Demonstrates separation of concerns and error handling.
+主要用黎處理External API嘅Request同Response
+Backend Services
+Handle API Request & Response
+Process Data & Business Logic(純粹自我認為Business Logic應該要處理嘅野, 唔一定正確, 但係自己覺得應該會好啲)
 """
 import httpx
 from typing import Dict, Any, Optional
