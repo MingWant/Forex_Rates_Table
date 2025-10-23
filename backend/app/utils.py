@@ -12,11 +12,11 @@ def is_even_number(value, decimals: int = 6) -> bool:
     # 1. 整數(integer)
     # 2. 小數(decimal)
     # 3. 科學記數法(scientific notation)
-    # 用Postman試過，Float同Double似乎都會有精度問題，所以一定用Decimal來避免浮點數精度問題，避免出現奇怪嘅結果
-    # 保證係String先，再轉換為Decimal，保持原始精度
+    # 用Float同Double似乎都會有精度問題，所以一定用Decimal來避免精度問題，避免出現奇怪嘅結果
+    # 保證係String先，再轉換為Decimal，保持原始嘅精度，避免精度問題
     decimal_value = Decimal(str(value))
     # 根據用戶指定嘅小數位數進行四捨五入，由用戶話事，用戶話要幾多位小數位數就幾多位小數位數
-    # 例如 decimals=4 -> '0.0001'，咁就四捨五入到小數點後4位
+    # 例如 decimals=4 -> '0.0001'，咁就四捨五入到小數點後4位，咁就唔會有精度問題
     quantize_precision = Decimal('0.' + '0' * (decimals - 1) + '1')
     decimal_value = decimal_value.quantize(quantize_precision, rounding=ROUND_HALF_UP)
     # 再將個decimal_value標準化，方便後面處理
