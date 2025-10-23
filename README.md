@@ -1,6 +1,7 @@
 # Forex Rates Table - Code Exercise
 **作者**: Siu Ming  
 **目的**: Code Exercise
+**Demo**: https://hsm.mingwant.com/
 ---
 
 ## 目標
