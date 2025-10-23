@@ -1,0 +1,146 @@
+/* App嘅Style*/
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
+}
+
+/* Container嘅Style*/
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlight Row嘅Border*/
+.highlight-row > td {
+  border-top: 1px solid red !important;
+  border-bottom: 1px solid red !important;
+}
+
+/* Highlight Row嘅Left Border*/
+.highlight-row > td:first-child {
+  border-left: 2px solid red !important;
+}
+
+/* Highlight Row嘅Right Border*/
+.highlight-row > td:last-child {
+  border-right: 2px solid red !important;
+}
+
+/* Ant Table嘅Font Size*/
+.ant-table {
+  font-size: 14px;
+}
+
+/* Ant Table嘅Header*/
+.ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #262626;
+}
+
+/* Ant Table嘅Body*/
+.ant-table-tbody > tr:hover > td {
+  background: #f5f5f5;
+}
+
+/* Ant Title嘅Font Size*/
+h2.ant-typography {
+  color: #1890ff;
+  margin-top: 0;
+}
+
+/* Ant Card*/
+.ant-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Ant Card嘅Header*/
+.ant-card-head {
+  background: #fafafa;
+  border-bottom: 2px solid #1890ff;
+}
+
+/* Ant Button*/
+.ant-btn-primary {
+  background: #1890ff;
+  border-color: #1890ff;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Ant Button嘅Hover*/
+.ant-btn-primary:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+/* Ant Select*/
+.ant-select {
+  font-size: 14px;
+}
+
+/* Ant Select嘅Selector*/
+.ant-select-selector {
+  height: 40px !important;
+  padding: 4px 11px !important;
+  display: flex;
+  align-items: center;
+}
+
+/* Ant Checkbox*/
+.ant-checkbox-wrapper {
+  margin: 5px 0;
+}
+
+/* Responsive Design暫定*/
+@media (max-width: 768px) {
+  .App {
+    padding: 20px 10px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .ant-space {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ant-space-item {
+    width: 100%;
+  }
+
+  .ant-select {
+    width: 100% !important;
+  }
+}
+
+/* Ant Table嘅Scrollbar*/
+.ant-table-body::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Ant Table嘅Scrollbar Track*/
+.ant-table-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Ant Table嘅Scrollbar Thumb*/
+.ant-table-body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Ant Table嘅Scrollbar Thumb嘅Hover*/
+.ant-table-body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

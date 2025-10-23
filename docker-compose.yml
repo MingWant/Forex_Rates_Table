@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  # Backend API Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: forex-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - FIXER_API_KEY=ziplNttvtF8ABWPXVRuIn4c3GPhW4d8W
+      - HOST=0.0.0.0
+      - PORT=8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/api/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - forex-network
+
+  # Frontend Web Service
+  frontend:
+    build:
+      context: ./frontend/forex-rates-table
+      dockerfile: Dockerfile
+    container_name: forex-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_BASE_URL=http://localhost:8000
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - forex-network
+
+networks:
+  forex-network:
+    driver: bridge
+
