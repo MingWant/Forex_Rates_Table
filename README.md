@@ -6,8 +6,12 @@
 ### https://hsm.mingwant.com/
 - 所用知識：雲端部署(Linux Server) + Nginx + CloudFlare Domain管理(沒有開CDN)
 
-## 部署
+## 使用Docker部署
 git clone 後可以直接用docker-compose一鍵啟動，也可以選擇將前後端分離，用你喜歡的方式啟動。
+```
+git clone https://github.com/MingWant/Forex_Rates_Table.git
+```
+cd到File然後啟動
 ```
 docker compose up -d
 ```
@@ -57,7 +61,7 @@ docker compose up -d
 
 **`utils.py`**
 - `is_even_number()`: 識別雙數的專門Function，處理了各種等情況
-  - 使用 `Decimal` 避免浮點數精度問題
+  - 使用 `Decimal` 避免精度問題
   - 支持用戶自己選擇小數位數 (1-20位)
   - 只檢查最後一位數字是否為Even Number
   
