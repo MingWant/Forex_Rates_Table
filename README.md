@@ -1,8 +1,9 @@
 # Forex Rates Table - Code Exercise
 **作者**: Siu Ming  
 **目的**: Code Exercise
-**Demo URL**: https://hsm.mingwant.com/
 ---
+##Demo URL##
+https://hsm.mingwant.com/
 
 ## 目標
 以滿足用戶需求為準，盡量不畫蛇添足
