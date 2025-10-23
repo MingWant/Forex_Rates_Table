@@ -12,7 +12,7 @@ def is_even_number(value, decimals: int = 6) -> bool:
     # 1. 整數(integer)
     # 2. 小數(decimal)
     # 3. 科學記數法(scientific notation)
-    # 用Float同Double似乎都會有精度問題，所以一定用Decimal來避免精度問題，避免出現奇怪嘅結果
+    # 用Float同Double似乎都會有精度問題，所以一定要用Decimal來避免精度問題，避免出現奇怪嘅結果
     # 保證係String先，再轉換為Decimal，保持原始嘅精度，避免精度問題
     decimal_value = Decimal(str(value))
     # 根據用戶指定嘅小數位數進行四捨五入，由用戶話事，用戶話要幾多位小數位數就幾多位小數位數
