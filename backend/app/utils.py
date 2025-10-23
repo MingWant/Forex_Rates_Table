@@ -31,7 +31,7 @@ def is_even_number(value, decimals: int = 6) -> bool:
         if not decimal_part:
                 value_str = integer_part
         else:
-                value_str = integer_part + decimal_part #理論上淨係要小數部分就足夠，但係為咗穩陣，所以都加返整數部分
+                value_str = integer_part + decimal_part #理論&事實上淨係要小數部分就足夠，但係為咗穩陣，可能之後要應對其他情況，所以都加返整數部分
     else:
         # 無小數點,即係一開始就係整數,咁就Pass,唔需要處理
         pass
