@@ -1,5 +1,6 @@
 """
 Main FastAPI Application.
+主要用黎做API Endpoint，用FastAPI做，方便之後擴展同埋維護，而且FastAPI有自動Gen API Doc功能，方便睇
 """
 from unittest import result
 from fastapi import FastAPI, HTTPException, Request

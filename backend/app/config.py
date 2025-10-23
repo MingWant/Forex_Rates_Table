@@ -1,5 +1,6 @@
 """
 Config file for the backend. config + .env file
+用嚟設定Environment Variables，方便之後維護同埋擴展
 """
 from pydantic_settings import BaseSettings
 from typing import List
