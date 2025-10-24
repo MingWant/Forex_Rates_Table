@@ -6,7 +6,8 @@ import math
 from decimal import Decimal, ROUND_HALF_UP
 
 
-# 題目硬性要求之一，檢查最後一個數字係唔係Even Number, 係就True, 唔係就False
+# 題目硬性要求之一，檢查最後一個數字係唔係Even Number, 係就True, 唔係就False，
+# 我想要一個Function可以處理絕大部分甚至所有情況去Check Even Number,以後都有機會用到
 def is_even_number(value, decimals: int = 6) -> bool:
     # 淨係從個API入面Get返黎嘅數據睇，會有幾個情況要處理，之後可能會有其他情況
     # 1. 整數(integer)
