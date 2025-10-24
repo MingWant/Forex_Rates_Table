@@ -42,11 +42,12 @@ def is_even_number(value, decimals: int = 6) -> bool:
     # 檢查最後一位數字係唔係Even Number就搞掂，Perfect！
     return last_digit % 2 == 0
 
-#簡單版，但係無辦法處理無效0嘅情況
+#簡單版, 但係冇得控制小數位數
 def is_even_number_v2(value) -> bool:
     decimal_value = Decimal(str(value))
     normalized_str = format(decimal_value, 'f')
-    last_digit = int(normalized_str[-1])
+    clean_str = normalized_str.rstrip('0').rstrip('.')
+    last_digit = int(clean_str[-1])
     return last_digit % 2 == 0
 
 
