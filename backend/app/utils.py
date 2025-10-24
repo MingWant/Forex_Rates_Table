@@ -22,23 +22,10 @@ def is_even_number(value, decimals: int = 6) -> bool:
     decimal_value = decimal_value.quantize(quantize_precision, rounding=ROUND_HALF_UP)
     # 再將個decimal_value標準化，方便後面處理
     value_str = format(decimal_value, 'f')
-    # 先分清楚原本係唔係整數先，如果係就唔需要處理，如果係小數就處理
-    if '.' in value_str:
-        # 有小數點就分開整數部分同小數部分
-        integer_part, decimal_part = value_str.split('.')
-        # 只移除小數部分嘅後尾嘅0
-        decimal_part = decimal_part.rstrip('0')
-        # 如果小數被清空咗，咁就唔需要小數點，直接用整數部分，否則就用小數部分就OK
-        if not decimal_part:
-                value_str = integer_part
-        else:
-                value_str = integer_part + decimal_part #理論&事實上淨係要小數部分就足夠，但係為咗穩陣，可能之後要應對其他情況，所以都加返整數部分
-    else:
-        # 無小數點,即係一開始就係整數,咁就Pass,唔需要處理
-        pass
-
+    # 先將value_str標準化，方便後面處理
+    clean_str = value_str.rstrip('0').rstrip('.')
     # 淨係要最後一位數字，轉換為int，防止出現奇怪嘅結果
-    last_digit = int(value_str[-1])
+    last_digit = int(clean_str[-1])
     # 檢查最後一位數字係唔係Even Number就搞掂，Perfect！
     return last_digit % 2 == 0
 
