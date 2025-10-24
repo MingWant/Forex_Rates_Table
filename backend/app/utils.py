@@ -6,9 +6,9 @@ import math
 from decimal import Decimal, ROUND_HALF_UP
 
 
-# 題目硬性要求之一，檢查最後一個數字係唔係Even Number, 係就True, 唔係就False，
+# 題目硬性要求之一，檢查最後一個數字係唔係Even Number, 係就True, 唔係就False，整左3個Version
 # 我想要一個Function可以處理絕大部分甚至所有情況去Check Even Number,以後都有機會用到
-# 下面有其他Check Even Number的Version, 應該更高效嘅版本（v3 用Normalize來處理應該更快）
+# 下面有其他Check Even Number的Version, 應該更高效嘅版本（v3 用Normalize來處理應該更快）（v4刪去不必要嘅String轉換）
 def is_even_number(value, decimals: int = 6) -> bool:
     # 淨係從個API入面Get返黎嘅數據睇，會有幾個情況要處理，之後可能會有其他情況
     # 1. 整數(integer), 直接檢查係唔係Even Number，節省算力
@@ -50,6 +50,19 @@ def is_even_number_v3(value) -> bool:
     normalized = format(decimal_value.normalize(), 'f')
     last_digit = int(str(normalized)[-1])
     return last_digit % 2 == 0
+
+#用to_eng_string()來處理，更高效? 精簡版 _v4，無控制小數位數
+def is_even_number_v4(value) -> bool:
+    if isinstance(value, int):
+        return value % 2 == 0
+    # 先將個value轉換為Decimal，再Normalize
+    dec = Decimal(str(value)).normalize()
+    #to_eng_string()會將個數轉換為科學記數法嘅String,直接唔要E之後嘅數字
+    num_str = dec.to_eng_string().split('E')[0]
+    # 直接由後向前檢查最後一位數字係唔係Even Number
+    for char in reversed(num_str):
+        if char.isdigit():
+            return int(char) % 2 == 0
 
 
 # 題目硬性要求之一，加10.0002到所有貨幣匯率
