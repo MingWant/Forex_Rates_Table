@@ -42,6 +42,13 @@ def is_even_number(value, decimals: int = 6) -> bool:
     # 檢查最後一位數字係唔係Even Number就搞掂，Perfect！
     return last_digit % 2 == 0
 
+#簡單版
+def is_even_number_v2(value) -> bool:
+    decimal_value = Decimal(str(value))
+    # 淨係要最後一位數字，轉換為int，防止出現奇怪嘅結果
+    last_digit = int(str(decimal_value)[-1])
+    # 檢查最後一位數字係唔係Even Number就搞掂，Perfect！
+    return last_digit % 2 == 0
 
 
 # 題目硬性要求之一，加10.0002到所有貨幣匯率
