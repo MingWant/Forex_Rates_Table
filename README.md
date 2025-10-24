@@ -4,7 +4,7 @@
 ---
 ## Demo URL
 ### https://hsm.mingwant.com/
-- 所用知識：雲端部署(Linux Server) + Nginx + CloudFlare Domain管理(沒有開CDN)
+- 所用Cloud知識：雲端部署(Linux Server) + Nginx + CloudFlare Domain管理(沒有開CDN)
 
 ## 使用Docker部署
 git clone 後可以直接用docker-compose一鍵啟動，也可以選擇將前後端分離，用你喜歡的方式啟動。
@@ -37,7 +37,7 @@ docker compose up -d
 ## 技術選擇
 
 ### 架構設計
-**前後端分離**：可以分開使用，而且未來可以對API進行修改例如加密、接駁其他Frontend等，並且可以展示我的Skills
+**前後端分離**：可以分開使用，而且未來可以對API進行修改例如加密、接駁其他Frontend等，並且可以展示我的Skills，如果只有Frontend没有Backend就Show不了我的Skills。
 
 ### Backend使用: Python
 **使用Python原因**：
