@@ -8,6 +8,7 @@ from decimal import Decimal, ROUND_HALF_UP
 
 # 題目硬性要求之一，檢查最後一個數字係唔係Even Number, 係就True, 唔係就False，
 # 我想要一個Function可以處理絕大部分甚至所有情況去Check Even Number,以後都有機會用到
+# 下面有其他Check Even Number的Version, 應該更高效嘅版本（v3 用Normalize來處理應該更快）
 def is_even_number(value, decimals: int = 6) -> bool:
     # 淨係從個API入面Get返黎嘅數據睇，會有幾個情況要處理，之後可能會有其他情況
     # 1. 整數(integer), 直接檢查係唔係Even Number，節省算力
@@ -28,7 +29,7 @@ def is_even_number(value, decimals: int = 6) -> bool:
     last_digit = int(value_str[-1])
     return last_digit % 2 == 0
 
-#其他版本, 但係冇得控制小數位數
+#精簡版 _v2，無控制小數位數
 def is_even_number_v2(value) -> bool:
     #單獨處理Integer情況，節省算力
     if isinstance(value, int):
@@ -39,6 +40,15 @@ def is_even_number_v2(value) -> bool:
     if('.' in value_str): # 防止個數係10.000000之類嘅情況
         value_str = value_str.rstrip('0').rstrip('.')
     last_digit = int(value_str[-1])
+    return last_digit % 2 == 0
+
+#用Normalize來處理，更高效? 精簡版 _v3，無控制小數位數
+def is_even_number_v3(value) -> bool:
+    if isinstance(value, int):
+        return value % 2 == 0
+    decimal_value = Decimal(str(value))
+    normalized = format(decimal_value.normalize(), 'f')
+    last_digit = int(str(normalized)[-1])
     return last_digit % 2 == 0
 
 
