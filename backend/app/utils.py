@@ -46,7 +46,7 @@ def is_even_number(value, decimals: int = 6) -> bool:
 def is_even_number_v2(value) -> bool:
     decimal_value = Decimal(str(value))
     normalized_str = format(decimal_value, 'f')
-    clean_str = normalized_str.rstrip('0')
+    clean_str = normalized_str.rstrip('0').rstrip('.')
     last_digit = int(clean_str[-1])
     return last_digit % 2 == 0
 
