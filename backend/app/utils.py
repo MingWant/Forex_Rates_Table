@@ -10,35 +10,35 @@ from decimal import Decimal, ROUND_HALF_UP
 # 我想要一個Function可以處理絕大部分甚至所有情況去Check Even Number,以後都有機會用到
 def is_even_number(value, decimals: int = 6) -> bool:
     # 淨係從個API入面Get返黎嘅數據睇，會有幾個情況要處理，之後可能會有其他情況
-    # 1. 整數(integer)
+    # 1. 整數(integer), 直接檢查係唔係Even Number，節省算力
+    if isinstance(value, int):
+        return value % 2 == 0
     # 2. 小數(decimal)
     # 3. 科學記數法(scientific notation)
-    # 用Float同Double似乎都會有精度問題，所以一定要用Decimal來避免精度問題，避免出現奇怪嘅結果
-    # 保證係String先，再轉換為Decimal，保持原始嘅精度，避免精度問題
+    # 先將個value轉換為String，再轉換為Decimal，可以統一處理呢兩種情況
     decimal_value = Decimal(str(value))
     # 根據用戶指定嘅小數位數進行四捨五入，由用戶話事，用戶話要幾多位小數位數就幾多位小數位數
     quantize_precision = Decimal('0.' + '0' * (decimals - 1) + '1')
     decimal_value = decimal_value.quantize(quantize_precision, rounding=ROUND_HALF_UP)
-    
-    # 再將個decimal_value標準化，方便後面處理
     value_str = format(decimal_value, 'f')
-    
     # 先抽0刪去無效數，再刪去小數點，防止10.0呢種情況
-    if('.' in value_str):
+    if('.' in value_str): # 防止個數係10.000000之類嘅情況
         value_str = value_str.rstrip('0').rstrip('.')
-    
-    # 淨係要最後一位數字，轉換為int，防止出現奇怪嘅結果(例如個數字超級大，超出int範圍)
-    last_digit = int(value_str[-1])
     # 檢查最後一位數字係唔係Even Number就搞掂，Perfect！
+    last_digit = int(value_str[-1])
     return last_digit % 2 == 0
 
-#簡單版, 但係冇得控制小數位數
+#其他版本, 但係冇得控制小數位數
 def is_even_number_v2(value) -> bool:
+    #單獨處理Integer情況，節省算力
+    if isinstance(value, int):
+        return value % 2 == 0
+    # 先將個value轉換為String，再轉換為Decimal，可以統一處理呢兩種情況
     decimal_value = Decimal(str(value))
-    normalized_str = format(decimal_value, 'f')
-    if('.' in normalized_str):
-        normalized_str = normalized_str.rstrip('0').rstrip('.')
-    last_digit = int(normalized_str[-1])
+    value_str = format(decimal_value, 'f').rstrip('0').rstrip('.')
+    if('.' in value_str): # 防止個數係10.000000之類嘅情況
+        value_str = value_str.rstrip('0').rstrip('.')
+    last_digit = int(value_str[-1])
     return last_digit % 2 == 0
 
 
