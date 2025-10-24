@@ -41,7 +41,8 @@ docker compose up -d
 
 ### Backend使用: Python
 **使用Python原因**：
-- 單從該Exercise的要求以及效率上來說，Node.js的確是更好的選擇，但Frontend就可以展示JavaScript能力
+- 單從該Exercise的要求以及效率上來說，Node.js的確是更好的選擇
+- 但Frontend就已經可以展示JavaScript能力，不想重複使用
 - 加上這個Exercise是為了展示我的Skills，而我更熟悉Python，用起來更得心應手
 - Python更好拓展其他功能，而且對我來說處理數字也更熟手
 
