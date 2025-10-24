@@ -37,7 +37,12 @@ docker compose up -d
 ## 技術選擇
 
 ### 架構設計
-**前後端分離**：可以分開使用，而且未來可以對API進行修改例如加密、接駁其他Frontend等，並且可以展示我的Skills，如果只有Frontend没有Backend就Show不了我的Skills。
+**前後端分離**：
+- 可以分開使用，而且未來可以對API進行修改例如加密、接駁其他Frontend等，並且可以展示我的Skills
+- 如果只有Frontend沒有有Backend就Show不了我的Skills
+- Frontend 對 Client 是透明的，任何敏感計算邏輯都會Show給用戶。
+- 雖然這次Exercise的Task可以只用Frontend去完成，但缺乏靈活性和應變
+- 並且在內容要求多的情況下文件結構上可能會變得特別臃腫和長，難以檢閱。
 
 ### Backend使用: Python
 **使用Python原因**：
